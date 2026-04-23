@@ -7,8 +7,9 @@ function App() {
   const [count, setCount] = useState(0)
   return (
     <>
-     <MovieScreen/>
+     {/* <MovieScreen/> */}
      {/* <MovieShowtimes/> */}
+     Init load
     </>
   )
 }
