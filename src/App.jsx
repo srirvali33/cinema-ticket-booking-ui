@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import MovieScreen from './MovieScreen/MovieScreen'
+//import MovieScreen from './MovieScreen/MovieScreen'
 //import MovieShowtimes from './movieshowtimes/movieshowtimes'
 import './App.css'
 
