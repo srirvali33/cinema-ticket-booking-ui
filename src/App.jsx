@@ -1,5 +1,5 @@
 import { useState } from 'react'
-//import MovieScreen from './MovieScreen/MovieScreen'
+import {MovieScreen} from './MovieScreen/MovieScreen'
 //import MovieShowtimes from './movieshowtimes/movieshowtimes'
 import './App.css'
 
@@ -7,9 +7,8 @@ function App() {
   const [count, setCount] = useState(0)
   return (
     <>
-     {/* <MovieScreen/> */}
+     <MovieScreen/>
      {/* <MovieShowtimes/> */}
-     Init load
     </>
   )
 }

@@ -113,7 +113,7 @@ function PosterPlaceholder({ movie }) {
   );
 }
 
-export default function MovieScreen() {
+export function MovieScreen() {
   const [activeTab, setActiveTab] = useState("All");
   const [activeNav, setActiveNav] = useState(0);
   const [showSearch, setShowSearch] = useState(false);
@@ -250,3 +250,5 @@ export default function MovieScreen() {
     </>
   );
 };
+
+export default MovieScreen;
