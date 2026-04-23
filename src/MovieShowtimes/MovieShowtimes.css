@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap');
+
+.smg-root{
+  --pageBg: #0d0d0d;
+  --heroBg: linear-gradient(135deg, #1a0a2e 0%, #0d1a3a 50%, #0d0d0d 100%);
+  --cardBg: #1a1a1a;
+  --cardBorder: #2a2a2a;
+  --accent: #e8382e;
+  --accentHover: #ff4a3f;
+  --tabActive: #e8382e;
+  --textPrimary: #ffffff;
+  --textMuted: #9a9a9a;
+  --pillBg: #2a2a2a;
+  --pillBorder: #3a3a3a;
+  --dateBg: #2a2a2a;
+  --dateActiveBg: #e8382e;
+  --showtimeBg: #252525;
+  --showtimeHoverBg: #333333;
+  --showtimeBorder: #333333;
+}
+
+
+* { box-sizing: border-box; }
+
+  body, .smg-root {
+    background: var(--pageBg);
+    color: var(--textPrimary);
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+  }
+
+  .smg-hero {
+    background: var(--heroBg);
+    position: relative;
+    overflow: hidden;
+    padding: 40px 32px 48px;
+  }
+  .smg-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(100,60,200,.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .smg-poster {
+    width: 160px;
+    min-width: 160px;
+    border-radius: 10px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.7);
+  }
+
+  .smg-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    letter-spacing: -0.5px;
+    line-height: 1.05;
+    margin: 0 0 14px;
+  }
+
+  .smg-badge {
+    display: inline-flex; align-items: center;
+    border: 1.5px solid #aaa;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #ccc;
+    letter-spacing: 1px;
+    margin-right: 10px;
+  }
+
+  .smg-meta {
+    font-size: 0.85rem;
+    color: var(--textMuted);
+    letter-spacing: .5px;
+  }
+
+  .smg-watch-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff;
+    color: #111;
+    border: none; border-radius: 999px;
+    padding: 9px 22px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 1rem;
+    letter-spacing: .5px;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .smg-watch-btn:hover { background: #e8e8e8; }
+  .smg-watch-btn svg { color: var(--accent); }
+
+  /* Tabs */
+  .smg-tabs {
+    border-bottom: 1px solid #282828;
+    padding: 0 32px;
+    background: var(--pageBg);
+  }
+  .smg-tab {
+    background: none; border: none;
+    color: var(--textMuted);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 0.95rem;
+    letter-spacing: 1px;
+    padding: 14px 4px;
+    margin-right: 28px;
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  .smg-tab.active { color: #fff; }
+  .smg-tab.active::after {
+    content: '';
+    position: absolute; bottom: -1px; left: 0; right: 0;
+    height: 3px; background: var(--tabActive); border-radius: 2px 2px 0 0;
+  }
+
+  /* Filter row */
+  .smg-filters {
+    padding: 20px 32px;
+    display: flex; flex-wrap: wrap; gap: 12px;
+    background: var(--pageBg);
+  }
+  .smg-pill {
+    background: var(--pillBg);
+    border: 1px solid var(--pillBorder);
+    border-radius: 6px;
+    color: #ccc;
+    font-size: 0.85rem;
+    padding: 9px 16px;
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer;
+    min-width: 180px;
+    transition: border-color .2s;
+  }
+  .smg-pill:hover { border-color: #555; }
+  .smg-pill svg { color: var(--textMuted); flex-shrink: 0; }
+  .smg-pill span { flex: 1; }
+
+  /* Date row */
+  .smg-dates {
+    display: flex; flex-wrap: nowrap; gap: 8px;
+    overflow-x: auto; padding: 0 32px 20px;
+    scrollbar-width: none;
+  }
+  .smg-dates::-webkit-scrollbar { display: none; }
+
+  .smg-date-btn {
+    min-width: 56px;
+    background: var(--dateBg);
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #ccc;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: .5px;
+    padding: 8px 10px;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background .15s, border-color .15s;
+    white-space: nowrap;
+  }
+  .smg-date-btn .smg-date-num {
+    display: block;
+    font-size: 1.45rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-top: 2px;
+  }
+  .smg-date-btn.active {
+    background: var(--dateActiveBg);
+    border-color: var(--dateActiveBg);
+    color: #fff;
+  }
+  .smg-date-btn.faded { color: #555; }
+  .smg-date-btn:not(.active):hover { background: #333; border-color: #444; }
+
+  /* Select day button */
+  .smg-select-day {
+    min-width: 64px;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #ccc;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: .5px;
+    padding: 8px 10px;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  /* Theater cards grid */
+  .smg-theaters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+    padding: 0 32px 40px;
+  }
+
+  .smg-theater-card {
+    background: var(--cardBg);
+    border: 1px solid var(--cardBorder);
+    border-radius: 10px;
+    padding: 20px;
+    transition: border-color .2s;
+  }
+  .smg-theater-card:hover { border-color: #444; }
+
+  .smg-theater-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin: 0 0 4px;
+  }
+
+  .smg-theater-addr {
+    font-size: 0.78rem;
+    color: var(--textMuted);
+    display: flex; align-items: center; gap: 5px;
+    margin-bottom: 14px;
+  }
+  .smg-theater-addr svg { color: var(--accent); }
+
+  .smg-format-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--textMuted);
+    margin-bottom: 8px;
+  }
+
+  .smg-times {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .smg-time-btn {
+    background: var(--showtimeBg);
+    border: 1px solid var(--showtimeBorder);
+    border-radius: 6px;
+    color: #ddd;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.82rem; font-weight: 600;
+    padding: 7px 14px;
+    cursor: pointer;
+    transition: background .15s, border-color .15s, color .15s;
+  }
+  .smg-time-btn:hover {
+    background: var(--showtimeHoverBg);
+    border-color: #555;
+    color: #fff;
+  }
+  .smg-time-btn.selected {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .smg-ampm { font-size: 0.7em; color: #888; margin-left: 2px; }
+  .smg-time-btn.selected .smg-ampm { color: rgba(255,255,255,.75); }
+
+  @media (max-width: 600px) {
+    .smg-hero { padding: 24px 16px 32px; flex-direction: column !important; }
+    .smg-poster { width: 120px; min-width: 120px; }
+    .smg-filters, .smg-tabs, .smg-dates { padding-left: 16px; padding-right: 16px; }
+    .smg-theaters { grid-template-columns: 1fr; padding-left: 16px; padding-right: 16px; }
+  }
+  

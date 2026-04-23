@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import MovieScreen from './moviescreen/moviescreen'
+import MovieShowtimes from './movieshowtimes/movieshowtimes'
 import './App.css'
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
   return (
     <>
      <MovieScreen/>
+     {/* <MovieShowtimes/> */}
     </>
   )
 }
