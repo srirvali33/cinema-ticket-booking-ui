@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import {MovieScreen} from './MovieScreen/MovieScreen'
+import {MovieScreen} from './moviescreen/MovieScreen'
 //import MovieShowtimes from './movieshowtimes/movieshowtimes'
 //import SeatPicker from './SeatPicker/SeatPicker';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
   return (
     <>
       {/* <SeatPicker/> */}
