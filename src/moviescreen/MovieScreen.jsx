@@ -172,6 +172,7 @@ export function MovieScreen() {
 
         {/* ── Movie Grid ── */}
         <div className="movie-grid">
+          
           {displayed.map((movie) => (
             <div key={movie.id} className="movie-card">
               <div className="poster-wrap">
@@ -186,6 +187,8 @@ export function MovieScreen() {
                 <div className="movie-genre">{movie.genre}</div>
               </div>
             </div>
+
+            
           ))}
 
           {displayed.length === 0 && (
@@ -201,6 +204,44 @@ export function MovieScreen() {
               No movies found
             </div>
           )}
+          
+        </div>
+
+
+
+        {/* ── Movie Grid ── */}
+        <div>Upcoming movies</div>
+        <div className="movie-grid">
+          
+          {displayed.map((movie) => (
+            <div key={movie.id} className="movie-card">
+              <div className="poster-wrap">
+                <PosterPlaceholder movie={movie} />
+                <div className="poster-overlay" />
+                <span className={`rating-badge ${getRatingClass(movie.rating)}`}>
+                  {movie.rating}
+                </span>
+              </div>
+              <div className="movie-info">
+                <div className="movie-title">{movie.title}</div>
+                <div className="movie-genre">{movie.genre}</div>
+              </div>
+            </div>     
+          ))}
+
+          {displayed.length === 0 && (
+            <div
+              style={{
+                gridColumn: "1 / -1",
+                textAlign: "center",
+                color: "var(--text-muted)",
+                padding: "40px 0",
+                fontFamily: "'DM Sans', sans-serif",
+              }}
+            >
+              No movies found
+            </div>
+          )}   
         </div>
 
         {/* ── Bottom Nav ── */}
