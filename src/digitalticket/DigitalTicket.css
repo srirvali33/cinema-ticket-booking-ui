@@ -1,0 +1,284 @@
+
+.app-shell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 1rem;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(192,23,43,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 20%, rgba(201,169,110,0.06) 0%, transparent 70%),
+    #0a0a0a;
+}
+
+/* ── Phone frame ───────────────────────── */
+.phone-frame {
+  width: 100%;
+  max-width: 390px;
+  min-height: 840px;
+  background: #0e0e0e;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow:
+    0 0 0 8px #1a1a1a,
+    0 0 0 9px rgba(255,255,255,0.04),
+    0 40px 100px rgba(0,0,0,0.8),
+    0 0 60px rgba(192,23,43,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ── Status bar ───────────────────────── */
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px 8px;
+  flex-shrink: 0;
+}
+
+.status-time {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Screen content ───────────────────── */
+.screen-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 24px 12px;
+  overflow-y: auto;
+}
+
+/* ── Page title ───────────────────────── */
+.page-title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* ── Confirmation message ─────────────── */
+.confirmation-msg {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: 0.025em;
+  margin-bottom: 18px;
+  text-align: center;
+  opacity: 0.92;
+}
+
+/* ── Ticket wrapper ───────────────────── */
+.ticket-wrapper {
+  width: 100%;
+  max-width: 310px;
+  filter:
+    drop-shadow(0 8px 32px rgba(0,0,0,0.7))
+    drop-shadow(0 2px 8px rgba(201,169,110,0.12));
+  animation: ticketReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes ticketReveal {
+  from { opacity: 0; transform: translateY(22px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+
+/* ── Ticket ───────────────────────────── */
+.ticket {
+  width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* ── Ticket top (info stub) ───────────── */
+.ticket-top {
+  background: var(--ticket-white);
+  position: relative;
+}
+
+.ticket-info {
+  padding: 14px 20px 10px;
+  text-align: center;
+  background: white;
+}
+
+.ticket-detail {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+}
+
+.tear-line {
+  position: relative;
+}
+
+/* ── Ticket art (poster) ──────────────── */
+.ticket-art {
+  width: 100%;
+  aspect-ratio: 310 / 220;
+  overflow: hidden;
+  background: #0a0604;
+}
+
+.ticket-art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Ticket bottom (barcode stub) ─────── */
+.ticket-bottom {
+  background: var(--ticket-white);
+}
+
+.barcode-area {
+  padding: 10px 20px 6px;
+  background: var(--ticket-white);
+  background: white;
+}
+
+/* ── Download section ─────────────────── */
+.download-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+  animation: fadeUp 0.5s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.download-label {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+  transition: color 0.3s;
+}
+
+.download-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--crimson);
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 4px 20px rgba(192,23,43,0.45),
+    0 0 0 0 rgba(192,23,43,0.4);
+  transition:
+    background 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+}
+
+.download-btn:hover {
+  background: var(--crimson-dark);
+  transform: scale(1.06);
+  box-shadow:
+    0 6px 28px rgba(192,23,43,0.55),
+    0 0 0 0 rgba(192,23,43,0.3);
+}
+
+.download-btn:active {
+  transform: scale(0.96);
+}
+
+/* Ripple animation */
+.download-btn.ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  animation: rippleOut 0.6s ease-out forwards;
+}
+
+@keyframes rippleOut {
+  from { transform: scale(0.5); opacity: 1; }
+  to   { transform: scale(2.2); opacity: 0; }
+}
+
+/* ── Bottom navigation ────────────────── */
+.bottom-nav {
+  padding: 10px 0 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: #0e0e0e;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  flex-shrink: 0;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn.active,
+.nav-btn:hover {
+  color: var(--text-primary);
+}
+
+.home-indicator {
+  width: 120px;
+  height: 4px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 2px;
+}
+
+/* ── Responsive: desktop centering ───── */
+@media (max-width: 430px) {
+  .phone-frame {
+    border-radius: 0;
+    min-height: 100dvh;
+    border: none;
+    box-shadow: none;
+  }
+
+  .app-shell {
+    padding: 0;
+    align-items: flex-start;
+  }
+}
