@@ -19,8 +19,8 @@ function App() {
  switch (page) {
   case 'home':
   return <MovieScreen onMovieSelection={() => {handlePageChange("movieshowtimes")}} />
-//   case 'seatpicker':
-//   return <SeatPicker onSeatSelection={() => {handlePageChange("digitalticket")}} />
+  case 'seatpicker':
+  return <SeatPicker onSeatSelection={() => {handlePageChange("digitalticket")}} />
   case 'movieshowtimes':
   return<MovieShowTimes onMovieShowtimesSelection={() => {handlePageChange("seatpicker")}} />
   case 'digitalticket':
