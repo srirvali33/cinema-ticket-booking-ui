@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {MovieScreen} from './moviescreen/MovieScreen'
-// import {MovieShowtimes} from './movieshowtimes/MovieShowtimes'
-// import {SeatPicker} from './seatpicker/SeatPicker';
+import {MovieShowTimes} from './movieshowtimes/MovieShowTimes'
+import {SeatPicker} from './seatpicker/SeatPicker';
 import {DigitalTicket} from './digitalticket/DigitalTicket';
 import './App.css';
 import { usePageSelection } from './store/pagestore';
@@ -18,11 +18,11 @@ function App() {
 
  switch (page) {
   case 'home':
-  return <MovieScreen onMovieSelection={() => {handlePageChange("digitalticket")}} />
+  return <MovieScreen onMovieSelection={() => {handlePageChange("movieshowtimes")}} />
 //   case 'seatpicker':
 //   return <SeatPicker onSeatSelection={() => {handlePageChange("digitalticket")}} />
-//   case 'movieshowtimes':
-//   return<MovieShowtimes onMovieShowtimesSelection={() => {handlePageChange("seatpicker")}} />
+  case 'movieshowtimes':
+  return<MovieShowTimes onMovieShowtimesSelection={() => {handlePageChange("seatpicker")}} />
   case 'digitalticket':
   return <DigitalTicket/>
   default:

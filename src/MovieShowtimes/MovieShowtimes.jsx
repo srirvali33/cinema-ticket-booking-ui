@@ -145,7 +145,7 @@ function renderTime(t) {
 }
 
 /* ─── component ──────────────────────────────────────────────────── */
-export function MovieShowtimes(props) {
+export function MovieShowTimes(props) {
   const {onMovieShowtimesSelection} = props;
   const [activeDate, setActiveDate] = useState(0);
   const [activeTab, setActiveTab] = useState("showtimes");
@@ -294,4 +294,4 @@ export function MovieShowtimes(props) {
   );
 };
 
-export default MovieShowtimes;
+export default MovieShowTimes;
