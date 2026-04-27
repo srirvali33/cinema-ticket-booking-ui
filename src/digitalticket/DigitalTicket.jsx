@@ -69,7 +69,7 @@ const IconDownload = () => (
 )
 
 /* ── Main DigitalTicket component ──────────────── */
-export default function DigitalTicket() {
+export function DigitalTicket() {
   const [downloaded, setDownloaded] = useState(false)
   const [ripple, setRipple]         = useState(false)
 
@@ -143,4 +143,6 @@ export default function DigitalTicket() {
       </div>
    
   )
-}
+};
+
+export default DigitalTicket;

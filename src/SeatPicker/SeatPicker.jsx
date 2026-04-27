@@ -28,7 +28,7 @@ const buildSeats = () =>
     }))
   )
 
-export default function SeatPicker(props) {
+export function SeatPicker(props) {
   const {onSeatSelection} = props;
   const [seats, setSeats] = useState(buildSeats)
   const [selectedId, setSelectedId] = useState(null)
@@ -188,3 +188,5 @@ function InfoRow({ icon, children }) {
     </div>
   )
 }
+
+export default SeatPicker;
