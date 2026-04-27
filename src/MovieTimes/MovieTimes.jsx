@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./MovieShowtimes.css";
+import "./MovieTimes.css";
 
 /* ─── data ───────────────────────────────────────────────────────── */
 const DATES = [
@@ -145,7 +145,7 @@ function renderTime(t) {
 }
 
 /* ─── component ──────────────────────────────────────────────────── */
-export function MovieShowTimes(props) {
+export function MovieTimes(props) {
   const {onMovieShowtimesSelection} = props;
   const [activeDate, setActiveDate] = useState(0);
   const [activeTab, setActiveTab] = useState("showtimes");
@@ -294,4 +294,4 @@ export function MovieShowTimes(props) {
   );
 };
 
-export default MovieShowTimes;
+export default MovieTimes;

@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react'
-import './SeatPicker.css';
+import './SeatSelection.css';
 
 // ── Seat layout: 6 rows × 8 cols ──────────────────────────────────────────
 // 0 = available, 1 = reserved, 2 = aisle gap
@@ -28,7 +28,7 @@ const buildSeats = () =>
     }))
   )
 
-export function SeatPicker(props) {
+export function SeatSelection(props) {
   const {onSeatSelection} = props;
   const [seats, setSeats] = useState(buildSeats)
   const [selectedId, setSelectedId] = useState(null)
@@ -189,4 +189,4 @@ function InfoRow({ icon, children }) {
   )
 }
 
-export default SeatPicker;
+export default SeatSelection;
