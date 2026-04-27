@@ -145,17 +145,21 @@ function renderTime(t) {
 }
 
 /* ─── component ──────────────────────────────────────────────────── */
-export default function MovieShowtimes() {
+export default function MovieShowtimes(props) {
+  const {onMovieShowtimesSelection} = props;
   const [activeDate, setActiveDate] = useState(0);
   const [activeTab, setActiveTab] = useState("showtimes");
   const [selectedTime, setSelectedTime] = useState(null); // "theaterId-formatIdx-timeIdx"
 
-  const handleTime = (key) =>
+  const handleTime = (key) =>{
     setSelectedTime((prev) => (prev === key ? null : key));
+    onMovieShowtimesSelection();
+  }
+    
+
 
   return (
     <div className="smg-root">
-      {/* <style>{css}</style> */}
 
       {/* ── HERO ── */}
       <div className="smg-hero d-flex gap-4 align-items-end">
@@ -167,6 +171,7 @@ export default function MovieShowtimes() {
             background: "linear-gradient(135deg,#4a1a8a,#c0392b,#f39c12)",
             borderRadius: 10,
           }}
+          
         >
           <span
             style={{
@@ -189,10 +194,6 @@ export default function MovieShowtimes() {
             <span className="smg-meta">1HR 38MINS</span>
           </div>
           <h1 className="smg-title">The Super Mario Galaxy Movie</h1>
-          {/* <button className="smg-watch-btn">
-            <IconYT />
-            Watch
-          </button> */}
         </div>
       </div>
 
@@ -227,7 +228,7 @@ export default function MovieShowtimes() {
           </div>
 
           {/* ── THEATER CARDS ── */}
-          <div className="smg-theaters">
+          <div className="smg-theaters" onClick={() => onSeatSelection()}>
             {THEATERS.map((theater) => (
               <div key={theater.id} className="smg-theater-card">
                 <div className="smg-theater-name">{theater.name}</div>

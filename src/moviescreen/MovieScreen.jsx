@@ -162,7 +162,7 @@ function PosterPlaceholder({ movie }) {
       }}
     >
 
-      <img src={movie.emoji} alt={movie.title} style={{ width: "306px", height: "406px", objectFit: "cover" }} />
+      <img src={movie.emoji} alt={movie.title} style={{ width: "306px", height: "406px", objectFit: "cover" }}/>
       <span
         style={{
           fontFamily: "'Syne', sans-serif",
@@ -181,11 +181,14 @@ function PosterPlaceholder({ movie }) {
   );
 }
 
-export function MovieScreen() {
+export function MovieScreen(props) {
+  const {onMovieSelection} = props;
   const [activeTab, setActiveTab] = useState("All");
   const [activeNav, setActiveNav] = useState(0);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+ 
   
 
   if (MOVIES.length === 0) {
@@ -248,7 +251,7 @@ export function MovieScreen() {
 
           {displayed.length>0 && displayed.map((movie) => (
             <div key={movie.id} className="movie-card">
-              <div className="poster-wrap">
+              <div className="poster-wrap" onClick={() => onMovieSelection()}>
                 <PosterPlaceholder movie={movie} />
                 <div className="poster-overlay" />
                 <span className={`rating-badge ${getRatingClass(movie.rating)}`}>
@@ -289,7 +292,7 @@ export function MovieScreen() {
           {displayed.map((movie) => (
             <div key={movie.id} className="movie-card">
               <div className="poster-wrap">
-                <PosterPlaceholder movie={movie} />
+                <PosterPlaceholder movie={movie}  />
                 <div className="poster-overlay" />
                 <span className={`rating-badge ${getRatingClass(movie.rating)}`}>
                   {movie.rating}

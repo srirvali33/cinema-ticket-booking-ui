@@ -110,7 +110,7 @@ export default function DigitalTicket() {
                 
                 <div className="ticket-info">
                   <p className="ticket-detail">Date: Dec 21 | Time: 5 pm</p>
-                  <p className="ticket-detail">Row 4 Column 8 | Seat 33</p>
+                  <p className="ticket-detail">Row 4 Column 8 | Seat 10</p>
                 </div>
                 <div className="tear-line">
                 </div>
