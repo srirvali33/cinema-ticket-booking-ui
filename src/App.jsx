@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {MovieScreen} from './moviescreen/MovieScreen'
-import {MovieShowTimes} from './movieshowtimes/MovieShowTimes'
-import {SeatPicker} from './seatpicker/SeatPicker';
+import MovieShowTimes from './movieshowtimes/MovieShowTimes';
+import SeatPicker from './seatpicker/SeatPicker';
 import {DigitalTicket} from './digitalticket/DigitalTicket';
 import './App.css';
 import { usePageSelection } from './store/pagestore';
