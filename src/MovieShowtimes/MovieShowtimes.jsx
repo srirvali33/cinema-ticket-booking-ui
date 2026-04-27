@@ -292,4 +292,6 @@ export default function MovieShowtimes(props) {
       )}
     </div>
   );
-}
+};
+
+export default MovieShowtimes;
