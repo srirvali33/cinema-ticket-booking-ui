@@ -28,7 +28,8 @@ const buildSeats = () =>
     }))
   )
 
-export default function SeatPicker() {
+export default function SeatPicker(props) {
+  const {onSeatSelection} = props;
   const [seats, setSeats] = useState(buildSeats)
   const [selectedId, setSelectedId] = useState(null)
 
@@ -46,7 +47,9 @@ export default function SeatPicker() {
     if (!selectedSeat) return
     alert(
       `✅ Reservation confirmed!\nSeat ${selectedSeat.seatNumber} · Row ${selectedSeat.row + 1} · Col ${selectedSeat.col + 1}\nTotal: $${SEAT_PRICE}`
-    )
+    );
+    onSeatSelection();
+
   }
 
   return (
