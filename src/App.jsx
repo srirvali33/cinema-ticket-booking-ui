@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {MovieScreen} from './moviescreen/MovieScreen'
-import {MovieShowtimes} from './movieshowtimes/MovieShowtimes.jsx'
+import MovieShowtimes from './movieshowtimes/MovieShowtimes.jsx'
 import {SeatPicker} from './seatpicker/SeatPicker.jsx';
 import {DigitalTicket} from './digitalticket/DigitalTicket.jsx';
 import './App.css';
