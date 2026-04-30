@@ -10,6 +10,8 @@ function App() {
 
  const page = usePageSelection((state) => state.selectedPage);
  const changePage = usePageSelection((state) => state.updateSelectedPage);
+ const [selectedMovie, setSelectedMovie] = useState(null);
+ const [selectedSeat, setSelectedSeat] = useState(null);
 
 
  function handlePageChange(newPage) {
@@ -18,13 +20,13 @@ function App() {
 
  switch (page) {
   case 'home':
-  return <MovieScreen onMovieSelection={() => {handlePageChange("movieshowtimes")}} />
+  return <MovieScreen onMovieSelection={(movie) => {setSelectedMovie(movie); handlePageChange("movieshowtimes")}} />
   case 'seatpicker':
-  return <SeatSelection onSeatSelection={() => {handlePageChange("digitalticket")}} />
+  return <SeatSelection onSeatSelection={(seat) => {setSelectedSeat(seat); handlePageChange("digitalticket")}} />
   case 'movieshowtimes':
-  return<MovieTimes onMovieShowtimesSelection={() => {handlePageChange("seatpicker")}} />
+  return<MovieTimes selectedMovie={selectedMovie} onMovieShowtimesSelection={() => {handlePageChange("seatpicker")}} />
   case 'digitalticket':
-  return <DigitalTicket/>
+  return <DigitalTicket selectedSeat={selectedSeat} />
   default:
   return <MovieScreen onMovieSelection={() => handlePageChange("movieshowtimes")} />
  }

@@ -1,25 +1,29 @@
 import { useState } from "react";
 import "./MovieTimes.css";
+import { CalendarDate } from "calendar-date"; // npm install calendar-date --save
 
 /* ─── data ───────────────────────────────────────────────────────── */
+const date = new Date().toISOString().slice(0, 10); 
+
 const DATES = [
-  { label: "Today", day: "23", dow: "" },
-  { label: "Fri", day: "24", dow: "Fri" },
-  { label: "Sat", day: "25", dow: "Sat" },
-  { label: "Sun", day: "26", dow: "Sun" },
-  { label: "Mon", day: "27", dow: "Mon" },
-  { label: "Tue", day: "28", dow: "Tue" },
-  { label: "Wed", day: "29", dow: "Wed" },
-  { label: "Thu", day: "30", dow: "Thu" },
-  { label: "May", day: "1",  dow: "May", faded: true },
-  { label: "Sat", day: "2",  dow: "Sat",  faded: true },
-  { label: "Sun", day: "3",  dow: "Sun",  faded: true },
+  { label: "Today", day: new CalendarDate(date).addDays(0).day, dow: "" },
+  { label: "Fri", day: new CalendarDate(date).addDays(1).day, dow: "Fri" },
+  { label: "Sat", day: new CalendarDate(date).addDays(2).day, dow: "Sat" },
+  { label: "Sun", day: new CalendarDate(date).addDays(3).day, dow: "Sun" },
+  { label: "Mon", day: new CalendarDate(date).addDays(4).day, dow: "Mon" },
+  { label: "Tue", day: new CalendarDate(date).addDays(5).day, dow: "Tue" },
+  { label: "Wed", day: new CalendarDate(date).addDays(6).day, dow: "Wed" },
+  { label: "Thu", day: new CalendarDate(date).addDays(7).day, dow: "Thu" },
+  { label: "May", day: new CalendarDate(date).addDays(8).day,  dow: "May", faded: true },
+  { label: "Sat", day: new CalendarDate(date).addDays(9).day,  dow: "Sat",  faded: true },
+  { label: "Sun", day: new CalendarDate(date).addDays(10).day,  dow: "Sun",  faded: true },
 ];
+
 
 const THEATERS = [
   {
     id: 1,
-    name: "Regal Crossroads – Bellevue",
+    name: "Hall 1 - IMAX",
     address: "1200 156th Avenue NE (0.59mi)",
     formats: [
       {
@@ -34,7 +38,7 @@ const THEATERS = [
   },
   {
     id: 2,
-    name: "Regal Bella Bottega",
+    name: "Hall 2 - Standard",
     address: "8890 NE 161st Avenue (4.49mi)",
     formats: [
       {
@@ -45,7 +49,7 @@ const THEATERS = [
   },
   {
     id: 3,
-    name: "Regal Issaquah Highlands",
+    name: "Hall 3 - 4DX",
     address: "940 NE Park Drive (7.83mi)",
     formats: [
       {
@@ -57,48 +61,7 @@ const THEATERS = [
         times: ["12:00 PM", "3:10 PM", "6:20 PM", "9:00 PM"],
       },
     ],
-  },
-  {
-    id: 4,
-    name: "AMC Factoria 8",
-    address: "3505 Factoria Blvd SE (3.1mi)",
-    formats: [
-      {
-        label: "Standard",
-        times: ["10:30 AM", "1:10 PM", "3:50 PM", "6:30 PM", "9:10 PM"],
-      },
-      {
-        label: "Dolby Cinema",
-        times: ["11:30 AM", "2:30 PM", "5:30 PM", "8:30 PM"],
-      },
-    ],
-  },
-  {
-    id: 5,
-    name: "Cinemark Lincoln Square",
-    address: "700 Bellevue Way NE (1.2mi)",
-    formats: [
-      {
-        label: "Standard",
-        times: ["9:45 AM", "12:15 PM", "2:50 PM", "5:25 PM", "8:00 PM"],
-      },
-      {
-        label: "XD",
-        times: ["10:45 AM", "1:45 PM", "4:45 PM", "7:45 PM"],
-      },
-    ],
-  },
-  {
-    id: 6,
-    name: "AMC Kirkland 6",
-    address: "293 Central Way (6.4mi)",
-    formats: [
-      {
-        label: "Standard",
-        times: ["10:00 AM", "12:40 PM", "3:15 PM", "5:55 PM", "8:35 PM"],
-      },
-    ],
-  },
+  }
 ];
 
 /* ─── icons (inline SVG to avoid deps) ──────────────────────────── */
@@ -146,7 +109,7 @@ function renderTime(t) {
 
 /* ─── component ──────────────────────────────────────────────────── */
 export function MovieTimes(props) {
-  const {onMovieShowtimesSelection} = props;
+  const {onMovieShowtimesSelection, selectedMovie} = props;
   const [activeDate, setActiveDate] = useState(0);
   const [activeTab, setActiveTab] = useState("showtimes");
   const [selectedTime, setSelectedTime] = useState(null); // "theaterId-formatIdx-timeIdx"
@@ -184,16 +147,16 @@ export function MovieTimes(props) {
               textShadow: "0 2px 6px rgba(0,0,0,.6)",
             }}
           >
-            <img src="https://m.media-amazon.com/images/M/MV5BMDg5MjRkNWEtYmU1Mi00MTExLTk5MDQtY2RiMWVkZWNiOThjXkEyXkFqcGc@._V1_.jpg" height={"230px"} width={"162px"}/>
+            <img src={selectedMovie.emoji} height={"230px"} width={"162px"}/>
           </span>
         </div>
 
         <div style={{ position: "relative", zIndex: 1 }}>
           <div className="d-flex align-items-center gap-2 mb-2">
-            <span className="smg-badge">PG</span>
-            <span className="smg-meta">1HR 38MINS</span>
+            <span className="smg-badge">{selectedMovie.rating}</span>
+            <span className="smg-meta">{selectedMovie.durationMinutes} mins</span>
           </div>
-          <h1 className="smg-title">The Super Mario Galaxy Movie</h1>
+          <h1 className="smg-title">{selectedMovie.title}</h1>
         </div>
       </div>
 
@@ -265,7 +228,7 @@ export function MovieTimes(props) {
       )}
 
       {activeTab === "details" && (
-        <div style={{ padding: "32px", color: theme.textMuted, maxWidth: 700 }}>
+        <div style={{ padding: "32px", maxWidth: 700 }}>
           <h2
             style={{
               fontFamily: "'Barlow Condensed',sans-serif",
@@ -278,15 +241,12 @@ export function MovieTimes(props) {
             About the Film
           </h2>
           <p style={{ lineHeight: 1.7 }}>
-            Mario and Luigi are back for an out-of-this-world adventure as they
-            blast off through the cosmos to rescue Princess Peach from the
-            clutches of Bowser, who has discovered a legendary power source hidden
-            deep within a distant galaxy.
+            {selectedMovie.description}
           </p>
           <p style={{ lineHeight: 1.7, marginTop: 12 }}>
-            <strong style={{ color: "#ccc" }}>Rating:</strong> PG &nbsp;·&nbsp;
-            <strong style={{ color: "#ccc" }}>Runtime:</strong> 1hr 38mins &nbsp;·&nbsp;
-            <strong style={{ color: "#ccc" }}>Genre:</strong> Animation, Adventure, Comedy
+            <strong style={{ color: "#ccc" }}>Rating:</strong> {selectedMovie.rating} &nbsp;·&nbsp;
+            <strong style={{ color: "#ccc" }}>Runtime:</strong> {selectedMovie.durationMinutes} mins &nbsp;·&nbsp;
+            <strong style={{ color: "#ccc" }}>Genre:</strong> {selectedMovie.genre}
           </p>
         </div>
       )}

@@ -249,7 +249,7 @@ export function MovieScreen(props) {
 
           {displayed.length>0 && displayed.map((movie) => (
             <div key={movie.id} className="movie-card">
-              <div className="poster-wrap" onClick={() => onMovieSelection()}>
+              <div className="poster-wrap" onClick={() => onMovieSelection(movie)}>
                 <PosterPlaceholder movie={movie} />
                 <div className="poster-overlay" />
                 <span className={`rating-badge ${getRatingClass(movie.rating)}`}>

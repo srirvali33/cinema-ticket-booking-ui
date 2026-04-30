@@ -69,7 +69,8 @@ const IconDownload = () => (
 )
 
 /* ── Main DigitalTicket component ──────────────── */
-export function DigitalTicket() {
+export function DigitalTicket(props) {
+  const { selectedSeat } = props;
   const [downloaded, setDownloaded] = useState(false)
   const [ripple, setRipple]         = useState(false)
 
@@ -110,7 +111,7 @@ export function DigitalTicket() {
                 
                 <div className="ticket-info">
                   <p className="ticket-detail">Date: Dec 21 | Time: 5 pm</p>
-                  <p className="ticket-detail">Row 4 Column 8 | Seat 10</p>
+                  <p className="ticket-detail">Row {selectedSeat?.row + 1} Column {selectedSeat?.col + 1} | Seat {selectedSeat?.seatNumber}</p>
                 </div>
                 <div className="tear-line">
                 </div>
