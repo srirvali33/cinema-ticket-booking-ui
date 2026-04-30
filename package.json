@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "calendar-date": "^2.11.0",
     "react": "^19.2.5",
-    "react-dom": "^19.2.5",
     "react-bootstrap": "^2.10.4",
+    "react-dom": "^19.2.5",
     "react-to-pdf": "^2.0.0",
     "zustand": "^5.0.12"
   },

@@ -48,7 +48,7 @@ export function SeatSelection(props) {
     alert(
       `✅ Reservation confirmed!\nSeat ${selectedSeat.seatNumber} · Row ${selectedSeat.row + 1} · Col ${selectedSeat.col + 1}\nTotal: $${SEAT_PRICE}`
     );
-    onSeatSelection();
+    onSeatSelection(selectedSeat);
 
   }
 
