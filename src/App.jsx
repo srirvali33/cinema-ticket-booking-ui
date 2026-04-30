@@ -7,7 +7,6 @@ import './App.css';
 import { usePageSelection } from './store/pagestore';
 
 function App() {
-
  const page = usePageSelection((state) => state.selectedPage);
  const changePage = usePageSelection((state) => state.updateSelectedPage);
  const [selectedMovie, setSelectedMovie] = useState(null);
