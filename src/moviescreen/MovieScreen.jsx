@@ -256,10 +256,10 @@ export function MovieScreen(props) {
                   {movie.rating}
                 </span>
               </div>
-              <div className="movie-info">
+              {/* <div className="movie-info">
                 <div className="movie-title">{movie.title}</div>
                 <div className="movie-genre">{movie.genre}</div>
-              </div>
+              </div> */}
             </div>
 
             
@@ -296,10 +296,10 @@ export function MovieScreen(props) {
                   {movie.rating}
                 </span>
               </div>
-              <div className="movie-info">
+              {/* <div className="movie-info">
                 <div className="movie-title">{movie.title}</div>
                 <div className="movie-genre">{movie.genre}</div>
-              </div>
+              </div> */}
             </div>     
           ))}
 
@@ -319,7 +319,7 @@ export function MovieScreen(props) {
         </div>
 
         {/* ── Bottom Nav ── */}
-        <nav className="bottom-nav">
+        {/* <nav className="bottom-nav">
           {NAV.map((item, i) => (
             <div
               key={i}
@@ -331,7 +331,7 @@ export function MovieScreen(props) {
               {activeNav === i && <div className="nav-dot" />}
             </div>
           ))}
-        </nav>
+        </nav> */}
       </div>
 
       {/* ── Search Overlay ── */}

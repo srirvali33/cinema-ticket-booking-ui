@@ -155,10 +155,12 @@
     display: flex;
     flex-direction: row;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 10px;
     padding: 0 16px 24px;
+    width: 1550px;
+    animation: spin 14s infinite linear;
   }
-
+ 
   /* ── Movie Card ── */
   .movie-card {
     cursor: pointer;
@@ -348,3 +350,18 @@
     cursor: pointer;
     font-size: 15px;
   }
+
+  .movie-card{
+    display: flex;
+    
+  }
+
+  @keyframes spin {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-100%);
+  }
+}
