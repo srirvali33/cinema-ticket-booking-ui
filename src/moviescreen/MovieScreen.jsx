@@ -232,7 +232,7 @@ export function MovieScreen(props) {
         </div>
 
         {/* ── Filter Tabs ── */}
-        <div className="filter-tabs">
+        {/* <div className="filter-tabs">
           {TABS.map((tab) => (
             <button
               key={tab}
@@ -242,7 +242,7 @@ export function MovieScreen(props) {
               {tab}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* ── Movie Grid ── */}
         <div className="movie-grid">
