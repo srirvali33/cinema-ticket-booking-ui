@@ -120,7 +120,6 @@ export function MovieTimes(props) {
   }
     
 
-
   return (
     <div className="smg-root">
 
@@ -147,7 +146,7 @@ export function MovieTimes(props) {
               textShadow: "0 2px 6px rgba(0,0,0,.6)",
             }}
           >
-            <img src={selectedMovie.emoji} height={"230px"} width={"162px"}/>
+            <img src={selectedMovie.image} height={"230px"} width={"162px"}/>
           </span>
         </div>
 

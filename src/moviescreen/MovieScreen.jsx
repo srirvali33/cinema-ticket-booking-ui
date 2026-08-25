@@ -163,7 +163,7 @@ function PosterPlaceholder({ movie }) {
       }}
     >
 
-      <img src={movie.emoji} alt={movie.title} style={{ width: "306px", height: "406px", objectFit: "cover" }}/>
+      <img src={movie.image} alt={movie.title} style={{ width: "306px", height: "406px", objectFit: "cover" }}/>
       <span
         style={{
           fontFamily: "'Syne', sans-serif",
@@ -188,15 +188,23 @@ export function MovieScreen(props) {
   const [activeNav, setActiveNav] = useState(0);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [movielist, setMovieList]= useState([]);
 
-  if (MOVIES.length === 0) {
+  
+  useEffect(()=>{
+
+    fetch("https://cinema-booking-api-f19p.onrender.com/api/movies/movielist").then((data)=>data.json())
+    .then((data)=>setMovieList(data))
+  },[])
+
+  if (movielist.length === 0) {
     return <div>Loading...</div>;
   }
 
   const filtered =
     activeTab === "All"
-      ? MOVIES
-      : MOVIES.filter((m) => m.genre === activeTab);
+      ? movielist
+      : movielist.filter((m) => m.genre === activeTab);
 
   const displayed = searchQuery
     ? filtered.filter((m) =>
