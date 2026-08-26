@@ -9,131 +9,6 @@ const styles = `
 const TABS = ["All", "Sci-Fi", "Action", "Drama", "Crime", "Animation", "Thriller"];
 
 
-const MOVIES= [
-
-  {
-    "id": 1,
-    "title": "Inception",
-    "genre": "Sci-Fi",
-    "director": "Christopher Nolan",
-    "durationMinutes": 148,
-    "rating": "PG-13",
-    "language": "English",
-    "releaseDate": null,
-    "emoji": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
-    "description": "A thief who steals corporate secrets through dream-sharing technology."
-  },
-  
-  {
-    "id": 2,
-    "title": "Interstellar",
-    "genre": "Sci-Fi",
-    "director": "Christopher Nolan",
-    "durationMinutes": 169,
-    "rating": "PG-13",
-    "language": "English",
-    "releaseDate": null,
-    "emoji": "https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_.jpg",
-    "description": "Explorers travel through a wormhole in search of a new home for humanity."
-  },
-  {
-    "id": 3,
-    "title": "The Super Mario Galaxy Movie",
-    "genre": "Drama",
-    "director": "Aaron Horvath",
-    "durationMinutes": 175,
-    "rating": "R",
-    "language": "English",
-    "releaseDate": null,
-    "emoji": "https://m.media-amazon.com/images/M/MV5BMDg5MjRkNWEtYmU1Mi00MTExLTk5MDQtY2RiMWVkZWNiOThjXkEyXkFqcGc@._V1_.jpg",
-    "description": "Mario ventures into space, exploring cosmic worlds and tackling galactic challenges far from the familiar Mushroom Kingdom."
-  },
-  {
-    "id": 4,
-    "title": "The Dark Knight",
-    "genre": "Action",
-    "director": "Christopher Nolan",
-    "durationMinutes": 152,
-    "rating": "PG-13",
-    "language": "English",
-    "releaseDate": null,
-    "emoji": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
-    "description": "Batman faces the Joker, a criminal mastermind who plunges Gotham into anarchy."
-  },
-  {
-    "id": 5,
-    "title": "Toy Story 3",
-    "genre": "Drama",
-    "director": "Lee Unkrich",
-    "durationMinutes": 154,
-    "rating": "R",
-    "language": "English",
-    "releaseDate": null,
-    "emoji": "https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_.jpg",
-    "description": "The toys are mistakenly delivered to a day-care center instead of the attic right before Andy leaves for college, and it's up to Woody to convince the other toys that they weren't abandoned and to return home."
-  },
-  {
-    "id": 6,
-    "title": "Avatar",
-    "genre": "Sci-Fi",
-    "director": "James Cameron",
-    "durationMinutes": 162,
-    "rating": "PG-13",
-    "language": "English",
-    "releaseDate": null,
-    "emoji": "https://m.media-amazon.com/images/M/MV5BN2RjM2RhMDMtMTc0NS00NGFkLTkxNzktNDZmMzY5N2ZjOTM3XkEyXkFqcGc@._V1_.jpg",
-    "description": "A paraplegic marine on Pandora falls in love with a native alien and joins her people."
-  },
-  {
-    "id": 7,
-    "title": "The Lion King",
-    "genre": "Animation",
-    "director": "Roger Allers",
-    "durationMinutes": 88,
-    "rating": "G",
-    "language": "English",
-    "releaseDate": null,
-    "emoji": "https://m.media-amazon.com/images/M/MV5BMGMyYWU0NGYtZDc3Yi00YmQ2LWJlOTUtOWJhZDBmOGNmYTk0XkEyXkFqcGc@._V1_.jpg",
-    "description": "A young lion prince flees his kingdom only to learn the true meaning of responsibility."
-  },
-  {
-    "id": 8,
-    "title": "Avengers: Endgame",
-    "genre": "Action",
-    "director": "Russo Brothers",
-    "durationMinutes": 181,
-    "rating": "PG-13",
-    "language": "English",
-    "releaseDate": null,
-    "emoji": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
-    "description": "The Avengers assemble once more to reverse the actions of Thanos."
-  },
-  {
-    "id": 9,
-    "title": "Parasite",
-    "genre": "Thriller",
-    "director": "Bong Joon-ho",
-    "durationMinutes": 132,
-    "rating": "R",
-    "language": "Korean",
-    "releaseDate": null,
-    "emoji": "https://m.media-amazon.com/images/M/MV5BMjAzNzAxNzYwMV5BMl5BanBnXkFtZTYwMzE2Mjk2._V1_.jpg",
-    "description": "Greed and class discrimination threaten a poor family when they scheme into a wealthy household."
-  },
-  {
-    "id": 10,
-    "title": "Dune",
-    "genre": "Sci-Fi",
-    "director": "Denis Villeneuve",
-    "durationMinutes": 155,
-    "rating": "PG-13",
-    "language": "English",
-    "releaseDate": null,
-    "emoji": "https://m.media-amazon.com/images/M/MV5BNTc0YmQxMjEtODI5MC00NjFiLTlkMWUtOGQ5NjFmYWUyZGJhXkEyXkFqcGc@._V1_.jpg",
-    "description": "A noble family becomes embroiled in a war over the galaxy most valuable asset."
-  }
-]
-
 const NAV = [
   { icon: "🎬", label: "Movies" },
   { icon: "🎟️", label: "Tickets" },
@@ -198,7 +73,7 @@ export function MovieScreen(props) {
   },[])
 
   if (movielist.length === 0) {
-    return <div>Loading...</div>;
+    return <div>It might take a while.Please wait...</div>;
   }
 
   const filtered =
