@@ -73,7 +73,7 @@ export function MovieScreen(props) {
   },[])
 
   if (movielist.length === 0) {
-    return <div>It might take a while.Please wait...</div>;
+    return <div>It might take few seconds to minutes.Please wait for a while...</div>;
   }
 
   const filtered =
