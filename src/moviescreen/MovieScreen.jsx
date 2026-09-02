@@ -167,7 +167,7 @@ export function MovieScreen(props) {
 
 
         {/* ── Movie Grid ── */}
-        <div>Upcoming movies</div>
+         <h1 className="section-title">Upcoming Movies</h1>
         <div className="movie-grid">
 
           {displayed.map((movie) => (
